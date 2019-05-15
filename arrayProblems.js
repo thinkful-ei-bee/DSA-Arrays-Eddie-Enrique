@@ -89,12 +89,12 @@ console.log(sort([1, 3, 6, 8, 11],[2, 3, 5, 8, 9, 10]));
 
 function removeChar(str, char){
   let output='';
-  let string= str
+  let string= str;
   for(let j=0; j< char.length; j++){
-     output='';
+    output='';
     for(let i=0; i<string.length; i++){
       if(string[i] !== char[j]){
-        output += string[i]
+        output += string[i];
       }
     }
     string = output;
@@ -102,7 +102,7 @@ function removeChar(str, char){
   return output;
 }
 
-console.log(removeChar('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
+console.log(removeChar('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
 
 function products(arr){
   const output = [];
@@ -119,4 +119,52 @@ function products(arr){
 }
 
 
-console.log(products([1, 3, 9, 4]))
+console.log(products([1, 3, 9, 4]));
+
+
+// 2-D Array
+
+function search2D(arr){
+  const columns = [];
+  const rows = [];
+  const output = arr;
+  for (let i=0;i<arr.length;i++){
+    for (let j=0;j<arr[i].length;j++){
+      if (arr[i][j]===0){
+        if (!columns.includes(j)){
+          columns.push(j);
+        }
+        if (!rows.includes(i)){
+          rows.push(i);
+        }
+      }
+    }
+  } // finds columns and rows
+
+  output.map((row,i)=>{
+    if (rows.includes(i)){
+      output[i] = new Array(row.length).fill(0);
+      // setting 0 array
+    }else{
+      row.map((column,j)=>{
+        if (columns.includes(j)){
+          row[j] = 0;
+          // setting column to 0
+        }
+      });
+    }
+  });
+
+  console.log('columns:',columns,'rows:',rows);
+  return output;
+  
+}
+
+const input = 
+  [[1,0,1,1,0],
+    [0,1,1,1,0],
+    [1,1,1,1,1],
+    [1,0,1,1,1],
+    [1,1,1,1,1]];
+
+console.log(search2D(input));

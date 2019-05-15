@@ -103,3 +103,20 @@ function removeChar(str, char){
 }
 
 console.log(removeChar('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
+
+function products(arr){
+  const output = [];
+  for(let i=0; i<arr.length; i++){
+    let prod = 1;
+    for (let j=0; j< arr.length; j++){
+      if (j!== i){
+        prod *= arr[j];
+      }
+    }
+    output.push(prod);
+  }
+  return output;
+}
+
+
+console.log(products([1, 3, 9, 4]))

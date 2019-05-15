@@ -86,3 +86,20 @@ function sort(arr1,arr2){
 
 console.log(sort([1, 3, 6, 8, 11],[2, 3, 5, 8, 9, 10]));
 
+
+function removeChar(str, char){
+  let output='';
+  let string= str
+  for(let j=0; j< char.length; j++){
+     output='';
+    for(let i=0; i<string.length; i++){
+      if(string[i] !== char[j]){
+        output += string[i]
+      }
+    }
+    string = output;
+  }
+  return output;
+}
+
+console.log(removeChar('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
